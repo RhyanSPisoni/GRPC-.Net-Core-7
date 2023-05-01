@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "GameServer.Protos";
+
+package game;
+
+// The greeting service definition.
+service GameService {
+  // Sends a greeting
+  rpc GetGame (GetGameRequest) returns (GameResponse);
+  rpc NewGame (NewGameRequest) returns (GameResponse);
+  rpc DeleteGame (DeleteGameRequest) returns (GameResponse);
+}
+
+message GetGameRequest{
+	int32 id = 1;
+}
+
+message NewGameRequest{
+	int32 id = 1;
+	string nome = 2;
+	int32 valor = 3;
+}
+
+message DeleteGameRequest{
+	int32 id = 1;
+}
+
+message GameResponse{
+	string nome = 1;
+	int32 valor = 2;
+}
